@@ -1,0 +1,49 @@
+.services-section {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.service-grid {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 20px;
+}
+
+.service-card {
+    background-color: #162447;
+    color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    width: 280px;
+    text-align: left;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.service-card h3 {
+    color: #f9b233;
+}
+
+.service-btn,
+.ai-btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+.ai-btn {
+    background-color: #f9b233;
+}
+
+.ai-helper {
+    background-color: #1e293b;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    margin-top: 40px;
+}
