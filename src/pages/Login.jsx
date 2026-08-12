@@ -3,7 +3,7 @@ import { AuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import logo from "../assets/tutorflow-logo.png";
 
-import { api } from "../api/api";
+
 
 export default function Login() {
     const { setUser } = useContext(AuthContext);
