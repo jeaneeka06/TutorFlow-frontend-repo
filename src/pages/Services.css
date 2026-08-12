@@ -1,49 +1,633 @@
-.services-section {
-    text-align: center;
-    margin-top: 40px;
+/* =========================
+   SERVICES PAGE
+========================= */
+
+.services-container {
+    width: 100%;
+    max-width: 1150px;
+    margin: 0 auto;
+    padding: 20px 30px 60px;
 }
+
+
+/* =========================
+   PAGE HEADER
+========================= */
+
+.services-header {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.services-header h1 {
+    color: #fbbf24;
+    font-size: 36px;
+    font-weight: 700;
+    margin: 10px 0;
+}
+
+.services-header p {
+    color: #cbd5e1;
+    font-size: 17px;
+    margin-top: 10px;
+}
+
+
+/* =========================
+   SERVICES SECTION
+========================= */
+
+.services-section {
+    margin-bottom: 35px;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.section-heading h2 {
+    color: white;
+    font-size: 24px;
+    margin-bottom: 8px;
+}
+
+.section-heading p {
+    color: #94a3b8;
+    margin: 0;
+}
+
+
+/* =========================
+   SERVICE GRID
+========================= */
 
 .service-grid {
-    display: flex;
-    justify-content: center;
-    gap: 20px;
-    flex-wrap: wrap;
-    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
 }
+
+
+/* =========================
+   SERVICE CARD
+========================= */
 
 .service-card {
-    background-color: #162447;
-    color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    width: 280px;
-    text-align: left;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 12px;
+
+    padding: 28px;
+
+    text-align: center;
+
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease,
+        border-color 0.2s ease;
 }
 
+.service-card:hover {
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 12px 25px rgba(0, 0, 0, 0.35);
+
+    border-color: #475569;
+}
+
+
+/* =========================
+   SERVICE ICON
+========================= */
+
+.service-icon {
+    width: 65px;
+    height: 65px;
+
+    margin: 0 auto 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #172554;
+
+    border-radius: 50%;
+
+    font-size: 30px;
+}
+
+
+/* =========================
+   SERVICE TEXT
+========================= */
+
 .service-card h3 {
-    color: #f9b233;
+    color: #fbbf24;
+    font-size: 21px;
+
+    margin: 0 0 12px;
+}
+
+.service-card p {
+    color: #cbd5e1;
+
+    line-height: 1.6;
+
+    min-height: 80px;
+
+    margin-bottom: 25px;
+}
+
+
+/* =========================
+   SERVICE BUTTONS
+========================= */
+
+.service-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
 }
 
 .service-btn,
 .ai-btn {
-    background-color: #007bff;
-    color: white;
     border: none;
-    padding: 8px 16px;
-    border-radius: 6px;
-    margin-right: 8px;
+    border-radius: 7px;
+
+    padding: 11px 16px;
+
+    font-size: 14px;
+    font-weight: 600;
+
     cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.service-btn {
+    background: #3b82f6;
+    color: white;
+}
+
+.service-btn:hover {
+    background: #2563eb;
+    transform: translateY(-2px);
 }
 
 .ai-btn {
-    background-color: #f9b233;
+    background: #fbbf24;
+    color: #172554;
 }
 
+.ai-btn:hover {
+    background: #f59e0b;
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   AI HELPER
+========================= */
+
 .ai-helper {
-    background-color: #1e293b;
-    padding: 30px;
-    border-radius: 10px;
+    background: #1e293b;
+
+    border: 1px solid #334155;
+
+    border-radius: 12px;
+
+    padding: 35px;
+
     text-align: center;
-    margin-top: 40px;
+
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+}
+
+.ai-helper-icon {
+    width: 60px;
+    height: 60px;
+
+    margin: 0 auto 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #172554;
+
+    border-radius: 50%;
+
+    font-size: 28px;
+}
+
+.ai-helper h2 {
+    color: white;
+
+    font-size: 25px;
+
+    margin-bottom: 12px;
+}
+
+.ai-helper p {
+    color: #cbd5e1;
+
+    font-size: 16px;
+
+    margin: 0 auto 8px;
+
+    max-width: 700px;
+}
+
+.ai-helper-secondary {
+    color: #94a3b8 !important;
+
+    font-size: 14px !important;
+
+    margin-bottom: 25px !important;
+}
+
+
+/* =========================
+   MAIN AI BUTTON
+========================= */
+
+.ai-main-btn {
+    border: none;
+    border-radius: 7px;
+
+    padding: 13px 28px;
+
+    background: #fbbf24;
+    color: #172554;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.ai-main-btn:hover {
+    background: #f59e0b;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   AI MODAL
+========================= */
+
+.ai-modal {
+    position: fixed;
+
+    inset: 0;
+
+    background: rgba(2, 6, 23, 0.82);
+
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    padding: 20px;
+
+    z-index: 1000;
+}
+
+
+/* =========================
+   MODAL CONTENT
+========================= */
+
+.ai-modal-content {
+    width: 100%;
+    max-width: 520px;
+
+    max-height: 90vh;
+
+    background: #1e293b;
+
+    border: 1px solid #475569;
+
+    border-radius: 14px;
+
+    padding: 25px;
+
+    color: white;
+
+    box-shadow:
+        0 20px 50px rgba(0, 0, 0, 0.5);
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* =========================
+   MODAL HEADER
+========================= */
+
+.ai-modal-header {
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: flex-start;
+
+    margin-bottom: 20px;
+}
+
+.ai-modal-header h3 {
+    color: #fbbf24;
+
+    font-size: 22px;
+
+    margin: 0 0 6px;
+}
+
+.ai-modal-header p {
+    color: #94a3b8;
+
+    margin: 0;
+
+    font-size: 14px;
+}
+
+.modal-x {
+    background: transparent;
+
+    border: none;
+
+    color: #94a3b8;
+
+    font-size: 28px;
+
+    line-height: 1;
+
+    cursor: pointer;
+}
+
+.modal-x:hover {
+    color: white;
+}
+
+
+/* =========================
+   CHATBOX
+========================= */
+
+.chatbox {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+}
+
+.messages {
+    background: #0f172a;
+
+    border: 1px solid #334155;
+
+    padding: 15px;
+
+    height: 300px;
+
+    overflow-y: auto;
+
+    border-radius: 9px;
+}
+
+
+/* =========================
+   AI WELCOME
+========================= */
+
+.ai-welcome {
+    height: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    text-align: center;
+
+    padding: 20px;
+
+    box-sizing: border-box;
+}
+
+.welcome-icon {
+    font-size: 38px;
+
+    margin-bottom: 10px;
+}
+
+.ai-welcome h4 {
+    color: white;
+
+    font-size: 18px;
+
+    margin: 0 0 8px;
+}
+
+.ai-welcome p {
+    color: #94a3b8;
+
+    font-size: 14px;
+
+    max-width: 350px;
+
+    margin: 0;
+}
+
+
+/* =========================
+   MESSAGES
+========================= */
+
+.msg-user {
+    background: #2563eb;
+
+    color: white;
+
+    padding: 10px 13px;
+
+    margin-bottom: 8px;
+
+    border-radius: 10px 10px 2px 10px;
+
+    max-width: 80%;
+
+    margin-left: auto;
+
+    text-align: left;
+
+    line-height: 1.4;
+}
+
+.msg-ai {
+    background: #334155;
+
+    color: white;
+
+    padding: 10px 13px;
+
+    margin-bottom: 8px;
+
+    border-radius: 10px 10px 10px 2px;
+
+    max-width: 80%;
+
+    margin-right: auto;
+
+    text-align: left;
+
+    line-height: 1.4;
+}
+
+
+/* =========================
+   CHAT INPUT
+========================= */
+
+.chat-input-row {
+    display: flex;
+
+    gap: 10px;
+}
+
+.chat-input {
+    flex: 1;
+
+    padding: 12px;
+
+    border-radius: 7px;
+
+    border: 1px solid #475569;
+
+    background: #0f172a;
+
+    color: white;
+
+    font-size: 14px;
+
+    outline: none;
+}
+
+.chat-input::placeholder {
+    color: #64748b;
+}
+
+.chat-input:focus {
+    border-color: #3b82f6;
+}
+
+.send-btn {
+    background: #3b82f6;
+
+    color: white;
+
+    border: none;
+
+    padding: 10px 18px;
+
+    border-radius: 7px;
+
+    font-weight: 600;
+
+    cursor: pointer;
+}
+
+.send-btn:hover {
+    background: #2563eb;
+}
+
+
+/* =========================
+   CLOSE BUTTON
+========================= */
+
+.close-btn {
+    margin-top: 12px;
+
+    background: #475569;
+
+    color: white;
+
+    border: none;
+
+    padding: 10px 16px;
+
+    border-radius: 7px;
+
+    cursor: pointer;
+}
+
+.close-btn:hover {
+    background: #64748b;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 900px) {
+
+    .service-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .services-container {
+        padding: 15px;
+    }
+
+    .service-card p {
+        min-height: auto;
+    }
+}
+
+
+@media (max-width: 600px) {
+
+    .services-header h1 {
+        font-size: 30px;
+    }
+
+    .service-buttons {
+        flex-direction: column;
+    }
+
+    .service-btn,
+    .ai-btn {
+        width: 100%;
+    }
+
+    .ai-modal-content {
+        padding: 18px;
+    }
+
+    .chat-input-row {
+        flex-direction: column;
+    }
+
+    .send-btn {
+        width: 100%;
+    }
 }

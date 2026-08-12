@@ -1,65 +1,167 @@
-export default function Bookings() {
+import React from "react";
+import { useNavigate, useLocation } from "react-router-dom";
+import "./Bookings.css";
+
+const Bookings = () => {
+    const navigate = useNavigate();
+    const location = useLocation();
     const bookings = [
         {
             subject: "Math Tutoring",
             tutor: "Sarah Johnson",
-            date: "July 10",
-            time: "3:00 PM",
-            color: "text-blue-400",
+            date: "August 13",
+            time: "4:00 PM",
+            status: "Confirmed"
         },
         {
             subject: "Science Review",
             tutor: "Michael Lee",
-            date: "July 12",
+            date: "August 15",
             time: "1:00 PM",
-            color: "text-green-400",
+            status: "Confirmed"
         },
         {
             subject: "English Writing",
             tutor: "Emily Carter",
-            date: "July 15",
+            date: "August 18",
             time: "11:00 AM",
-            color: "text-yellow-400",
-        },
+            status: "Confirmed"
+        }
     ];
 
     return (
-        <div className="space-y-8">
-            {/* Header */}
-            <div className="bg-[#1e293b] p-6 rounded-xl shadow-md">
-                <h1 className="text-3xl font-bold text-yellow-400">Your Bookings</h1>
-                <p className="text-gray-300 mt-2">
-                    View and manage your upcoming tutoring sessions.
+
+        <div className="bookings-container">
+
+            <div className="bookings-header">
+                <h1 className="bookings-title">
+                    Your Bookings
+                </h1>
+
+                <p className="bookings-subtitle">
+                    Manage your upcoming tutoring appointments
                 </p>
+                {location.state?.selectedSubject && (
+                    <div className="selected-service">
+                        <h2>Book {location.state.selectedSubject} Tutoring</h2>
+
+                        <p>
+                            You selected {location.state.selectedSubject} tutoring.
+                            Choose a time for your tutoring session.
+                        </p>
+
+                        <button
+                            className="view-btn"
+                            onClick={() =>
+                                alert(
+                                    `${location.state.selectedSubject} tutoring appointment selected!`
+                                )
+                            }
+                        >
+                            Confirm Appointment
+                        </button>
+                    </div>
+                )}
             </div>
 
-            {/* Bookings List */}
-            <div className="space-y-6">
-                {bookings.map((session, index) => (
-                    <div
-                        key={index}
-                        className="bg-[#1e293b] p-6 rounded-xl shadow-md hover:bg-[#0f172a] transition"
-                    >
-                        <div className="flex justify-between items-center">
-                            <div>
-                                <h2 className={`text-xl font-bold ${session.color}`}>
-                                    {session.subject}
-                                </h2>
-                                <p className="text-gray-300 mt-1">
-                                    Tutor: {session.tutor}
-                                </p>
-                                <p className="text-gray-400 text-sm">
-                                    {session.date} • {session.time}
-                                </p>
+            <div className="bookings-list">
+
+                {bookings.map((b, index) => (
+
+                    <div className="booking-card" key={index}>
+
+                        <div className="booking-card-header">
+                            <h2 className="booking-subject">
+                                {b.subject}
+                            </h2>
+
+                            <span className="booking-status">
+                                {b.status}
+                            </span>
+                        </div>
+
+                        <div className="booking-details">
+
+                            <div className="booking-detail">
+                                <span className="detail-icon">👨‍🏫</span>
+
+                                <div>
+                                    <span className="detail-label">
+                                        Tutor
+                                    </span>
+
+                                    <span className="detail-value">
+                                        {b.tutor}
+                                    </span>
+                                </div>
                             </div>
 
-                            <button className="bg-blue-500 hover:bg-blue-600 transition px-4 py-2 rounded-lg font-semibold">
-                                View
-                            </button>
+                            <div className="booking-detail">
+                                <span className="detail-icon">📅</span>
+
+                                <div>
+                                    <span className="detail-label">
+                                        Date
+                                    </span>
+
+                                    <span className="detail-value">
+                                        {b.date}
+                                    </span>
+                                </div>
+                            </div>
+
+                            <div className="booking-detail">
+                                <span className="detail-icon">🕒</span>
+
+                                <div>
+                                    <span className="detail-label">
+                                        Time
+                                    </span>
+
+                                    <span className="detail-value">
+                                        {b.time}
+                                    </span>
+                                </div>
+                            </div>
+
                         </div>
+
+                        <button
+                            className="view-btn"
+                            onClick={() =>
+                                alert(
+                                    `Booking: ${b.subject}\nTutor: ${b.tutor}\nDate: ${b.date}\nTime: ${b.time}`
+                                )
+                            }
+                        >
+                            View Details
+                        </button>
+
                     </div>
+
                 ))}
+
             </div>
+
+            <div className="booking-help">
+                <h2>Need help with your booking?</h2>
+
+                <p>
+                    You can use the AI Study Assistant if you have
+                    questions about your tutoring session.
+                </p>
+
+                <button
+                    className="ai-help-btn"
+                    onClick={() => navigate("/services")}
+                >
+                    Ask AI for Help
+                </button>
+            </div>
+
         </div>
+
     );
-}
+};
+
+export default Bookings;

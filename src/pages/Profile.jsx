@@ -1,9 +1,12 @@
 import { useContext, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../context/AuthContext";
+
+import "./Profile.css";
 
 export default function Profile() {
     const { user, setUser } = useContext(AuthContext);
-
+    const navigate = useNavigate();
     const [form, setForm] = useState({
         name: user?.name || "",
         email: user?.email || "",
@@ -13,6 +16,7 @@ export default function Profile() {
 
     const handleChange = (e) => {
         const { name, value, type, checked } = e.target;
+
         setForm({
             ...form,
             [name]: type === "checkbox" ? checked : value,
@@ -20,7 +24,6 @@ export default function Profile() {
     };
 
     const handleSave = () => {
-        // Update user context
         setUser({
             ...user,
             name: form.name,
@@ -31,85 +34,190 @@ export default function Profile() {
     };
 
     return (
-        <div className="space-y-8">
+        <div>
+            <div className="profile-container">
 
-            {/* Header */}
-            <div className="bg-[#1e293b] p-6 rounded-xl shadow-md">
-                <h1 className="text-3xl font-bold text-yellow-400">Your Profile</h1>
-                <p className="text-gray-300 mt-2">
-                    Manage your personal information and account settings.
-                </p>
+                {/* Page Header */}
+                <div className="profile-header">
+                    <h1>Your Profile</h1>
+
+                    <p>
+                        Manage your personal information and account settings.
+                    </p>
+                </div>
+
+                {/* Profile Overview */}
+                <div className="profile-card profile-overview">
+
+                    <div className="profile-avatar">
+                        {form.name?.[0]?.toUpperCase() || "U"}
+                    </div>
+
+                    <div className="profile-identity">
+                        <h2>
+                            {form.name || "Student"}
+                        </h2>
+
+                        <p>
+                            {form.email || "email@example.com"}
+                        </p>
+
+                        <span className="student-badge">
+                            Student
+                        </span>
+                    </div>
+
+                </div>
+
+                {/* Personal Information */}
+                <div className="profile-card">
+
+                    <div className="section-heading">
+                        <h2>Personal Information</h2>
+
+                        <p>
+                            Update the information associated with your TutorFlow account.
+                        </p>
+                    </div>
+
+                    <div className="profile-form">
+
+                        <div className="form-group">
+                            <label htmlFor="name">
+                                Full Name
+                            </label>
+
+                            <input
+                                id="name"
+                                name="name"
+                                type="text"
+                                value={form.name}
+                                onChange={handleChange}
+                                placeholder="Enter your full name"
+                            />
+                        </div>
+
+                        <div className="form-group">
+                            <label htmlFor="email">
+                                Email Address
+                            </label>
+
+                            <input
+                                id="email"
+                                name="email"
+                                type="email"
+                                value={form.email}
+                                onChange={handleChange}
+                                placeholder="Enter your email address"
+                            />
+                        </div>
+
+                    </div>
+                </div>
+
+                {/* Account Settings */}
+                <div className="profile-card">
+
+                    <div className="section-heading">
+                        <h2>Account Settings</h2>
+
+                        <p>
+                            Choose how TutorFlow communicates with you.
+                        </p>
+                    </div>
+
+                    <div className="settings-list">
+
+                        {/* Notifications */}
+                        <div className="setting-row">
+
+                            <div className="setting-text">
+                                <h3>Notifications</h3>
+
+                                <p>
+                                    Receive reminders about upcoming tutoring sessions.
+                                </p>
+                            </div>
+
+                            <label className="toggle">
+                                <input
+                                    type="checkbox"
+                                    name="notifications"
+                                    checked={form.notifications}
+                                    onChange={handleChange}
+                                />
+
+                                <span className="slider"></span>
+                            </label>
+
+                        </div>
+
+                        {/* Dark Mode */}
+                        <div className="setting-row">
+
+                            <div className="setting-text">
+                                <h3>Dark Mode</h3>
+
+                                <p>
+                                    Keep TutorFlow's dark theme enabled.
+                                </p>
+                            </div>
+
+                            <label className="toggle">
+                                <input
+                                    type="checkbox"
+                                    name="darkMode"
+                                    checked={form.darkMode}
+                                    onChange={handleChange}
+                                />
+
+                                <span className="slider"></span>
+                            </label>
+
+                        </div>
+
+                    </div>
+                </div>
+
+                {/* Save Button */}
+                <div className="profile-actions">
+
+                    <button
+                        className="save-profile-btn"
+                        onClick={handleSave}
+                    >
+                        Save Changes
+                    </button>
+
+                </div>
+
+                {/* AI Section */}
+                <div className="profile-ai-card">
+
+                    <div className="ai-icon">
+                        ✨
+                    </div>
+
+                    <div>
+                        <h2>Need help with your studies?</h2>
+
+                        <p>
+                            Your TutorFlow AI assistant can help explain
+                            concepts, create practice questions, and prepare
+                            you for your next tutoring session.
+                        </p>
+                    </div>
+
+                    <button
+                        className="ai-profile-btn"
+                        onClick={() => navigate("/services")}
+                    >
+                        Ask AI
+                    </button>
+
+                </div>
+
             </div>
-
-            {/* Profile Card */}
-            <div className="bg-[#1e293b] p-6 rounded-xl shadow-md flex items-center gap-6">
-                <div className="w-20 h-20 rounded-full bg-blue-500 flex items-center justify-center text-3xl font-bold">
-                    {form.name?.[0] || "U"}
-                </div>
-
-                <div>
-                    <h2 className="text-2xl font-bold">{form.name || "User"}</h2>
-                    <p className="text-gray-300">{form.email || "email@example.com"}</p>
-                </div>
-            </div>
-
-            {/* Editable Info */}
-            <div className="bg-[#1e293b] p-6 rounded-xl shadow-md space-y-6">
-                <h2 className="text-xl font-bold text-yellow-400">Personal Information</h2>
-
-                <div className="flex flex-col gap-4">
-                    <input
-                        name="name"
-                        value={form.name}
-                        onChange={handleChange}
-                        className="p-3 rounded bg-[#0f172a] border border-gray-600"
-                        placeholder="Full Name"
-                    />
-
-                    <input
-                        name="email"
-                        value={form.email}
-                        onChange={handleChange}
-                        className="p-3 rounded bg-[#0f172a] border border-gray-600"
-                        placeholder="Email Address"
-                    />
-                </div>
-            </div>
-
-            {/* Settings */}
-            <div className="bg-[#1e293b] p-6 rounded-xl shadow-md space-y-6">
-                <h2 className="text-xl font-bold text-yellow-400">Account Settings</h2>
-
-                <div className="flex items-center justify-between">
-                    <span className="text-gray-300">Enable Notifications</span>
-                    <input
-                        type="checkbox"
-                        name="notifications"
-                        checked={form.notifications}
-                        onChange={handleChange}
-                        className="w-5 h-5"
-                    />
-                </div>
-
-                <div className="flex items-center justify-between">
-                    <span className="text-gray-300">Dark Mode</span>
-                    <input
-                        type="checkbox"
-                        name="darkMode"
-                        checked={form.darkMode}
-                        onChange={handleChange}
-                        className="w-5 h-5"
-                    />
-                </div>
-            </div>
-
-            {/* Save Button */}
-            <button
-                onClick={handleSave}
-                className="bg-blue-500 hover:bg-blue-600 transition px-6 py-3 rounded-lg font-semibold"
-            >
-                Save Changes
-            </button>
         </div>
     );
 }

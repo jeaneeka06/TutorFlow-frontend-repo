@@ -1,0 +1,408 @@
+/* =========================
+   PROFILE PAGE
+========================= */
+
+.profile-container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px 30px 60px;
+}
+
+
+/* =========================
+   PAGE HEADER
+========================= */
+
+.profile-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.profile-header h1 {
+    color: #fbbf24;
+    font-size: 36px;
+    font-weight: 700;
+    margin: 10px 0;
+}
+
+.profile-header p {
+    color: #cbd5e1;
+    font-size: 17px;
+    margin-top: 10px;
+}
+
+
+/* =========================
+   GENERAL CARD
+========================= */
+
+.profile-card {
+    background: #1e293b;
+    border: 1px solid #334155;
+    border-radius: 12px;
+    padding: 28px;
+    margin-bottom: 25px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.25);
+}
+
+
+/* =========================
+   PROFILE OVERVIEW
+========================= */
+
+.profile-overview {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    text-align: left;
+}
+
+.profile-avatar {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #3b82f6;
+    color: white;
+
+    font-size: 36px;
+    font-weight: 700;
+
+    box-shadow: 0 5px 15px rgba(59, 130, 246, 0.35);
+}
+
+.profile-identity h2 {
+    color: white;
+    font-size: 26px;
+    margin: 0 0 6px;
+}
+
+.profile-identity p {
+    color: #cbd5e1;
+    margin: 0 0 12px;
+}
+
+.student-badge {
+    display: inline-block;
+
+    background: #172554;
+    color: #93c5fd;
+
+    padding: 5px 12px;
+    border-radius: 20px;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+/* =========================
+   SECTION HEADINGS
+========================= */
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.section-heading h2 {
+    color: #fbbf24;
+    font-size: 23px;
+    margin: 0 0 8px;
+}
+
+.section-heading p {
+    color: #94a3b8;
+    margin: 0;
+}
+
+
+/* =========================
+   FORM
+========================= */
+
+.profile-form {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.form-group input {
+    width: 100%;
+    box-sizing: border-box;
+
+    padding: 13px 15px;
+
+    background: #0f172a;
+    border: 1px solid #475569;
+    border-radius: 7px;
+
+    color: white;
+    font-size: 15px;
+
+    outline: none;
+    text-align: center;
+
+    transition: border-color 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+.form-group input::placeholder {
+    color: #64748b;
+}
+
+.form-group input:focus {
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.15);
+}
+
+
+/* =========================
+   SETTINGS
+========================= */
+
+.settings-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.setting-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 20px 0;
+
+    border-bottom: 1px solid #334155;
+}
+
+.setting-row:last-child {
+    border-bottom: none;
+}
+
+.setting-text {
+    text-align: left;
+}
+
+.setting-text h3 {
+    color: white;
+    font-size: 17px;
+    margin: 0 0 5px;
+}
+
+.setting-text p {
+    color: #94a3b8;
+    margin: 0;
+    font-size: 14px;
+}
+
+
+/* =========================
+   TOGGLE SWITCH
+========================= */
+
+.toggle {
+    position: relative;
+
+    width: 50px;
+    height: 26px;
+
+    flex-shrink: 0;
+}
+
+.toggle input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    inset: 0;
+
+    background: #475569;
+    border-radius: 30px;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.slider::before {
+    content: "";
+
+    position: absolute;
+
+    width: 20px;
+    height: 20px;
+
+    left: 3px;
+    top: 3px;
+
+    background: white;
+    border-radius: 50%;
+
+    transition: 0.3s;
+}
+
+.toggle input:checked+.slider {
+    background: #3b82f6;
+}
+
+.toggle input:checked+.slider::before {
+    transform: translateX(24px);
+}
+
+
+/* =========================
+   SAVE BUTTON
+========================= */
+
+.profile-actions {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.save-profile-btn {
+    padding: 13px 35px;
+
+    border: none;
+    border-radius: 7px;
+
+    background: #3b82f6;
+    color: white;
+
+    font-size: 15px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: background 0.2s ease,
+        transform 0.2s ease;
+}
+
+.save-profile-btn:hover {
+    background: #2563eb;
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   AI CARD
+========================= */
+
+.profile-ai-card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 20px;
+
+    background: #1e293b;
+    border: 1px solid #334155;
+
+    border-radius: 12px;
+
+    padding: 28px;
+
+    text-align: center;
+}
+
+.ai-icon {
+    width: 50px;
+    height: 50px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #172554;
+    border-radius: 50%;
+
+    font-size: 24px;
+}
+
+.profile-ai-card h2 {
+    color: white;
+    margin: 0 0 8px;
+}
+
+.profile-ai-card p {
+    color: #cbd5e1;
+    margin: 0;
+    max-width: 600px;
+}
+
+.ai-profile-btn {
+    padding: 11px 22px;
+
+    border: none;
+    border-radius: 7px;
+
+    background: #fbbf24;
+    color: #172554;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    white-space: nowrap;
+}
+
+.ai-profile-btn:hover {
+    background: #f59e0b;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 800px) {
+
+    .profile-container {
+        padding: 15px;
+    }
+
+    .profile-header h1 {
+        font-size: 30px;
+    }
+
+    .profile-overview {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profile-form {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-ai-card {
+        flex-direction: column;
+    }
+
+    .setting-row {
+        gap: 20px;
+    }
+}

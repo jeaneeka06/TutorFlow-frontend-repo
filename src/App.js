@@ -15,9 +15,20 @@ export default function App() {
     <AuthProvider>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Login />} />
-          <Route path="/register" element={<Register />} />
 
+          {/* Login */}
+          <Route
+            path="/"
+            element={<Login />}
+          />
+
+          {/* Register */}
+          <Route
+            path="/register"
+            element={<Register />}
+          />
+
+          {/* Dashboard */}
           <Route
             path="/dashboard"
             element={
@@ -29,6 +40,7 @@ export default function App() {
             }
           />
 
+          {/* Services */}
           <Route
             path="/services"
             element={
@@ -40,6 +52,7 @@ export default function App() {
             }
           />
 
+          {/* Bookings */}
           <Route
             path="/bookings"
             element={
@@ -51,6 +64,7 @@ export default function App() {
             }
           />
 
+          {/* Profile */}
           <Route
             path="/profile"
             element={
@@ -61,6 +75,7 @@ export default function App() {
               </ProtectedRoute>
             }
           />
+
         </Routes>
       </BrowserRouter>
     </AuthProvider>
