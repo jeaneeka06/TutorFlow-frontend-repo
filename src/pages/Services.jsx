@@ -26,7 +26,7 @@ export default function Services() {
         setInput("");
 
         try {
-            const response = await fetch("http://localhost:5000/api/ai", {
+            const response = await fetch("https://tutorflow-backend-repo.onrender.com/", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
